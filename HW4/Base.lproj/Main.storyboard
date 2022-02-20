@@ -47,13 +47,13 @@
                                         <rect key="frame" x="34.666666666666657" y="155.66666666666669" width="273.33333333333337" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLb-q4-3DK">
-                                                <rect key="frame" x="0.0" y="0.0" width="29.333333333333332" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="25.333333333333332" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aXn-hQ-Fnn">
-                                                <rect key="frame" x="81.333333333333314" y="0.0" width="194" height="31"/>
+                                                <rect key="frame" x="77.333333333333314" y="0.0" width="198" height="31"/>
                                                 <connections>
                                                     <action selector="volumeChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="0OP-5o-I4K"/>
                                                 </connections>
@@ -357,7 +357,11 @@
                                 <rect key="frame" x="0.0" y="766" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Switch to TV" id="n2b-pf-Tgt"/>
+                                    <barButtonItem title="Switch to TV" id="n2b-pf-Tgt">
+                                        <connections>
+                                            <action selector="switchToTV:" destination="wMd-pD-gac" id="EWJ-61-77C"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KdZ-GA-fzL">
@@ -419,47 +423,79 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOp-aD-fqv">
                                 <rect key="frame" x="255" y="293" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="toggleDVRPower:" destination="wMd-pD-gac" eventType="valueChanged" id="aqZ-fe-4iQ"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNh-tI-ogS">
                                 <rect key="frame" x="89" y="372" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="CzC-hf-VY8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-DM-XzC">
                                 <rect key="frame" x="70" y="427" width="89" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Fast Forward"/>
+                                <connections>
+                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="URc-bZ-u53"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmE-bE-Jk3">
                                 <rect key="frame" x="187" y="372" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="tjJ-dE-14e"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpg-oD-df8">
                                 <rect key="frame" x="282" y="372" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Pause"/>
+                                <connections>
+                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="kYf-th-7Iu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vj0-zV-GrD">
                                 <rect key="frame" x="81" y="491" width="67" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Record"/>
+                                <connections>
+                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="DFx-Nf-d89"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTt-BY-Rwl">
                                 <rect key="frame" x="244" y="427" width="89" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Rewind"/>
+                                <state key="normal" title="Fast Rewind"/>
+                                <connections>
+                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="O1T-ot-faM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fjN-ar-62v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="dvrPowerStatus" destination="NcH-UU-qsO" id="o9F-jC-fd0"/>
+                        <outlet property="dvrPowerSwitch" destination="dOp-aD-fqv" id="jGY-Yw-DD9"/>
+                        <outlet property="stateStatus" destination="tcn-cU-6J5" id="vUk-eo-Mfw"/>
+                        <outletCollection property="dvrControls" destination="GTt-BY-Rwl" collectionClass="NSMutableArray" id="xbM-cr-OLq"/>
+                        <outletCollection property="dvrControls" destination="FNh-tI-ogS" collectionClass="NSMutableArray" id="dLT-jk-cS2"/>
+                        <outletCollection property="dvrControls" destination="DmE-bE-Jk3" collectionClass="NSMutableArray" id="rLe-Rk-KiQ"/>
+                        <outletCollection property="dvrControls" destination="bpg-oD-df8" collectionClass="NSMutableArray" id="gk8-Kn-EQN"/>
+                        <outletCollection property="dvrControls" destination="Ef1-DM-XzC" collectionClass="NSMutableArray" id="xrx-LG-331"/>
+                        <outletCollection property="dvrControls" destination="Vj0-zV-GrD" collectionClass="NSMutableArray" id="jow-s3-khS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CX8-D9-xvr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
