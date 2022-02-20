@@ -47,13 +47,13 @@
                                         <rect key="frame" x="34.666666666666657" y="155.66666666666669" width="273.33333333333337" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLb-q4-3DK">
-                                                <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="29.333333333333332" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aXn-hQ-Fnn">
-                                                <rect key="frame" x="85.333333333333314" y="0.0" width="190" height="31"/>
+                                                <rect key="frame" x="81.333333333333314" y="0.0" width="194" height="31"/>
                                                 <connections>
                                                     <action selector="volumeChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="0OP-5o-I4K"/>
                                                 </connections>
@@ -298,7 +298,11 @@
                                 <rect key="frame" x="0.0" y="766" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Switch to DVR" id="44h-gV-qMo"/>
+                                    <barButtonItem title="Switch to DVR" id="44h-gV-qMo">
+                                        <connections>
+                                            <segue destination="wMd-pD-gac" kind="presentation" modalPresentationStyle="fullScreen" id="zbI-KV-mRk"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
