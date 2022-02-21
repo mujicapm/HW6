@@ -47,13 +47,13 @@
                                         <rect key="frame" x="34.666666666666657" y="155.66666666666669" width="273.33333333333337" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLb-q4-3DK">
-                                                <rect key="frame" x="0.0" y="0.0" width="25.333333333333332" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="17.333333333333332" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aXn-hQ-Fnn">
-                                                <rect key="frame" x="77.333333333333314" y="0.0" width="198" height="31"/>
+                                                <rect key="frame" x="69.333333333333314" y="0.0" width="206" height="31"/>
                                                 <connections>
                                                     <action selector="volumeChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="0OP-5o-I4K"/>
                                                 </connections>
@@ -294,9 +294,11 @@
                             <stepper hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="99" translatesAutoresizingMaskIntoConstraints="NO" id="rQy-Sy-a6M">
                                 <rect key="frame" x="97" y="736" width="94" height="32"/>
                             </stepper>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6a-7Y-Ifq">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6a-7Y-Ifq">
                                 <rect key="frame" x="0.0" y="766" width="390" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gxP-gn-jZu"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="Switch to DVR" id="44h-gV-qMo">
                                         <connections>
@@ -309,13 +311,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Y6a-7Y-Ifq" firstAttribute="leading" secondItem="Gxt-nX-kKU" secondAttribute="leading" id="Lcw-YA-90q"/>
                             <constraint firstItem="rQy-Sy-a6M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="97" id="MiS-7k-62j"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rQy-Sy-a6M" secondAttribute="bottom" constant="42" id="O2c-hL-aKe"/>
                             <constraint firstItem="Yyg-Gj-WvL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="V3y-6K-knT"/>
                             <constraint firstItem="Gxt-nX-kKU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VMs-C5-eD6"/>
                             <constraint firstItem="Gxt-nX-kKU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-10" id="YoN-Yy-fcd"/>
                             <constraint firstItem="Gxt-nX-kKU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZR6-tH-Iyr"/>
+                            <constraint firstItem="Y6a-7Y-Ifq" firstAttribute="trailing" secondItem="Gxt-nX-kKU" secondAttribute="trailing" id="lTr-sQ-A60"/>
                             <constraint firstItem="Yyg-Gj-WvL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="23.666666666666657" id="lsJ-s6-Glf"/>
+                            <constraint firstItem="Y6a-7Y-Ifq" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="nky-D6-TTW"/>
                             <constraint firstItem="Yyg-Gj-WvL" firstAttribute="top" secondItem="Gxt-nX-kKU" secondAttribute="bottom" constant="31.000000000000142" id="yh8-bN-SOi"/>
                         </constraints>
                     </view>
@@ -353,9 +358,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XB0-yE-irU">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XB0-yE-irU">
                                 <rect key="frame" x="0.0" y="766" width="390" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SoC-0U-GHP"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem title="Switch to TV" id="n2b-pf-Tgt">
                                         <connections>
@@ -364,137 +371,184 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KdZ-GA-fzL">
-                                <rect key="frame" x="0.0" y="44" width="390" height="147"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KdZ-GA-fzL">
+                                <rect key="frame" x="0.0" y="44" width="390" height="147.66666666666666"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My DVR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIV-D0-9Qj">
-                                        <rect key="frame" x="35" y="63" width="85" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                        <color key="textColor" name="AccentColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DVR Power:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEq-uN-Gdg">
-                                        <rect key="frame" x="174" y="44" width="90" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="AccentColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dvrPowerOn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcH-UU-qsO">
-                                        <rect key="frame" x="292" y="44" width="95" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="AccentColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="State:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grp-7O-jRw">
-                                        <rect key="frame" x="174" y="90" width="45" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="AccentColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="stateStatus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcn-cU-6J5">
-                                        <rect key="frame" x="292" y="90" width="87" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="AccentColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="EL3-YH-SWr">
+                                        <rect key="frame" x="6" y="40.666666666666679" width="374.66666666666669" height="66.333333333333314"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My DVR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cIV-D0-9Qj">
+                                                <rect key="frame" x="0.0" y="19.333333333333329" width="84.666666666666671" height="27.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                <color key="textColor" name="AccentColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" spacing="62" id="GI2-UR-ncl">
+                                                <rect key="frame" x="97.666666666666686" y="0.3333333333333357" width="277" height="65.666666666666657"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fP3-Jy-17a">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120.66666666666667" height="65.666666666666671"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DVR Power:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEq-uN-Gdg">
+                                                                <rect key="frame" x="0.0" y="0.0" width="89.333333333333329" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="AccentColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grp-7O-jRw">
+                                                                <rect key="frame" x="0.0" y="45.333333333333343" width="44.666666666666664" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="AccentColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" axis="vertical" spacing="25" id="8Bx-0S-cvP">
+                                                        <rect key="frame" x="182.66666666666663" y="0.0" width="94.333333333333314" height="65.666666666666671"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dvrPowerOn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NcH-UU-qsO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="94.333333333333329" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="AccentColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stateStatus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcn-cU-6J5">
+                                                                <rect key="frame" x="0.0" y="45.333333333333343" width="94.333333333333329" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" name="AccentColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstItem="EL3-YH-SWr" firstAttribute="centerY" secondItem="KdZ-GA-fzL" secondAttribute="centerY" id="FFs-nd-1Nt"/>
+                                    <constraint firstItem="EL3-YH-SWr" firstAttribute="top" secondItem="KdZ-GA-fzL" secondAttribute="top" constant="40.666666666666679" id="Nlq-TK-LZV"/>
+                                    <constraint firstItem="EL3-YH-SWr" firstAttribute="leading" secondItem="KdZ-GA-fzL" secondAttribute="leading" constant="6" id="mBn-v0-eDY"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DVR Remote Control" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dde-EZ-zyQ">
-                                <rect key="frame" x="91" y="226" width="213" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Power" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLo-Ox-t57">
-                                <rect key="frame" x="81" y="298" width="48" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOp-aD-fqv">
-                                <rect key="frame" x="255" y="293" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="toggleDVRPower:" destination="wMd-pD-gac" eventType="valueChanged" id="aqZ-fe-4iQ"/>
-                                </connections>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNh-tI-ogS">
-                                <rect key="frame" x="89" y="372" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="CzC-hf-VY8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-DM-XzC">
-                                <rect key="frame" x="70" y="427" width="89" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Fast Forward"/>
-                                <connections>
-                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="URc-bZ-u53"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmE-bE-Jk3">
-                                <rect key="frame" x="187" y="372" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Stop"/>
-                                <connections>
-                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="tjJ-dE-14e"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpg-oD-df8">
-                                <rect key="frame" x="282" y="372" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Pause"/>
-                                <connections>
-                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="kYf-th-7Iu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vj0-zV-GrD">
-                                <rect key="frame" x="81" y="491" width="67" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Record"/>
-                                <connections>
-                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="DFx-Nf-d89"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTt-BY-Rwl">
-                                <rect key="frame" x="244" y="427" width="89" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Fast Rewind"/>
-                                <connections>
-                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="O1T-ot-faM"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="gof-DY-HUx">
+                                <rect key="frame" x="66" y="240.66666666666666" width="258" height="285.66666666666674"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DVR Remote Control" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dde-EZ-zyQ">
+                                        <rect key="frame" x="23.000000000000014" y="0.0" width="212.33333333333337" height="28.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="126" translatesAutoresizingMaskIntoConstraints="NO" id="Rvf-o2-QAM">
+                                        <rect key="frame" x="18.000000000000014" y="71.666666666666657" width="222.33333333333337" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Power" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLo-Ox-t57">
+                                                <rect key="frame" x="0.0" y="0.0" width="47.333333333333336" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOp-aD-fqv">
+                                                <rect key="frame" x="173.33333333333331" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="toggleDVRPower:" destination="wMd-pD-gac" eventType="valueChanged" id="aqZ-fe-4iQ"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="5XU-0g-GMF">
+                                        <rect key="frame" x="0.0" y="145.66666666666666" width="258" height="139.99999999999997"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="77" translatesAutoresizingMaskIntoConstraints="NO" id="BM2-IN-FJG">
+                                                <rect key="frame" x="0.0" y="0.0" width="258" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNh-tI-ogS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Play"/>
+                                                        <connections>
+                                                            <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="CzC-hf-VY8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DmE-bE-Jk3">
+                                                        <rect key="frame" x="107" y="0.0" width="32" height="30"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Stop"/>
+                                                        <connections>
+                                                            <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="tjJ-dE-14e"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpg-oD-df8">
+                                                        <rect key="frame" x="216" y="0.0" width="42" height="30"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Pause"/>
+                                                        <connections>
+                                                            <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="kYf-th-7Iu"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="85" translatesAutoresizingMaskIntoConstraints="NO" id="gor-z9-cgi">
+                                                <rect key="frame" x="0.66666666666668561" y="55" width="257" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ef1-DM-XzC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Fast Forward"/>
+                                                        <connections>
+                                                            <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="URc-bZ-u53"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTt-BY-Rwl">
+                                                        <rect key="frame" x="174" y="0.0" width="83" height="30"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Fast Rewind"/>
+                                                        <connections>
+                                                            <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="O1T-ot-faM"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vj0-zV-GrD">
+                                                <rect key="frame" x="104.66666666666666" y="110" width="49" height="30"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Record"/>
+                                                <connections>
+                                                    <action selector="changeState:" destination="wMd-pD-gac" eventType="touchUpInside" id="DFx-Nf-d89"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fjN-ar-62v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KdZ-GA-fzL" firstAttribute="leading" secondItem="XB0-yE-irU" secondAttribute="leading" id="3Vb-Bz-bTM"/>
+                            <constraint firstItem="KdZ-GA-fzL" firstAttribute="trailing" secondItem="XB0-yE-irU" secondAttribute="trailing" id="A5x-8x-SzR"/>
+                            <constraint firstItem="KdZ-GA-fzL" firstAttribute="centerX" secondItem="wgf-Lh-BRt" secondAttribute="centerX" id="CTt-lX-0ki"/>
+                            <constraint firstItem="KdZ-GA-fzL" firstAttribute="centerX" secondItem="gof-DY-HUx" secondAttribute="centerX" id="D6O-Yn-CoG"/>
+                            <constraint firstItem="KdZ-GA-fzL" firstAttribute="top" secondItem="fjN-ar-62v" secondAttribute="top" id="TTS-Sq-SR8"/>
+                            <constraint firstItem="KdZ-GA-fzL" firstAttribute="leading" secondItem="fjN-ar-62v" secondAttribute="leading" id="dek-kH-ovC"/>
+                            <constraint firstItem="XB0-yE-irU" firstAttribute="bottom" secondItem="fjN-ar-62v" secondAttribute="bottom" id="pjU-b6-cRF"/>
+                            <constraint firstItem="gof-DY-HUx" firstAttribute="top" secondItem="KdZ-GA-fzL" secondAttribute="bottom" constant="48.999999999999972" id="us8-oJ-fFK"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="dvrPowerStatus" destination="NcH-UU-qsO" id="o9F-jC-fd0"/>
                         <outlet property="dvrPowerSwitch" destination="dOp-aD-fqv" id="jGY-Yw-DD9"/>
                         <outlet property="stateStatus" destination="tcn-cU-6J5" id="vUk-eo-Mfw"/>
-                        <outletCollection property="dvrControls" destination="GTt-BY-Rwl" collectionClass="NSMutableArray" id="xbM-cr-OLq"/>
                         <outletCollection property="dvrControls" destination="FNh-tI-ogS" collectionClass="NSMutableArray" id="dLT-jk-cS2"/>
-                        <outletCollection property="dvrControls" destination="DmE-bE-Jk3" collectionClass="NSMutableArray" id="rLe-Rk-KiQ"/>
-                        <outletCollection property="dvrControls" destination="bpg-oD-df8" collectionClass="NSMutableArray" id="gk8-Kn-EQN"/>
-                        <outletCollection property="dvrControls" destination="Ef1-DM-XzC" collectionClass="NSMutableArray" id="xrx-LG-331"/>
+                        <outletCollection property="dvrControls" destination="GTt-BY-Rwl" collectionClass="NSMutableArray" id="xbM-cr-OLq"/>
                         <outletCollection property="dvrControls" destination="Vj0-zV-GrD" collectionClass="NSMutableArray" id="jow-s3-khS"/>
+                        <outletCollection property="dvrControls" destination="bpg-oD-df8" collectionClass="NSMutableArray" id="gk8-Kn-EQN"/>
+                        <outletCollection property="dvrControls" destination="DmE-bE-Jk3" collectionClass="NSMutableArray" id="rLe-Rk-KiQ"/>
+                        <outletCollection property="dvrControls" destination="Ef1-DM-XzC" collectionClass="NSMutableArray" id="xrx-LG-331"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CX8-D9-xvr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

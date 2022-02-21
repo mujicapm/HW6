@@ -13,22 +13,14 @@ class dvrViewController: UIViewController {
     @IBOutlet weak var dvrPowerStatus: UILabel!
     @IBOutlet weak var dvrPowerSwitch: UISwitch!
     @IBOutlet var dvrControls: [UIButton]!
-    enum state: String {
-        case stopped = "Stopped"
-        case playing = "Playing"
-        case paused = "Paused"
-        case fast_Forwarding = "Fast forwarding"
-        case fast_Rewinding = "Fast rewinding"
-        case recording = "Recording"
-        var stateName: String {return self.rawValue}
-    }
     let stateMapping = [
         "Stop": "Stopped", "Play": "Playing", "Pause": "Paused", "Fast Forward": "Fast forwarding", "Fast Rewind": "Fast rewinding", "Record": "Recording"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dvrPowerStatus.text = (dvrPowerSwitch.isOn ? "on" : "off")
-        stateStatus.text = "Stopped" //TODO need to hold state so doesn't reset everytime you go to TV remote
+        
+        stateStatus.text = "Stopped"
         // Do any additional setup after loading the view.
     }
     
@@ -39,10 +31,12 @@ class dvrViewController: UIViewController {
             for label in dvrControls {
                 label.isEnabled = true
             }
+            stateStatus.text = "Stopped"
         } else {
             for label in dvrControls {
                 label.isEnabled = false
             }
+            stateStatus.text = "Stopped"
         }
     }
     
@@ -50,10 +44,86 @@ class dvrViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    
     @IBAction func changeState(_ sender: UIButton) {
         if let stateName = stateMapping[sender.currentTitle!] {
-            stateStatus.text = stateName
+            if (stateStatus.text == "Playing") {
+                if ((stateName == "Paused") || (stateName == "Fast forwarding") || (stateName == "Fast rewinding") || (stateName == "Playing") || (stateName == "Stopped")) {
+                    stateStatus.text = stateName
+                } else {
+                    stateChangeActionSheet(stateName)
+                }
+            } else if (stateStatus.text == "Stopped") {
+                if ((stateName == "Stopped") || (stateName == "Recording") || (stateName == "Playing")) {
+                    stateStatus.text = stateName
+                } else {
+                    stateChangeActionSheet(stateName)
+                }
+
+            } else if (stateStatus.text == "Recording") {
+                if (stateName == "Stopped") {
+                    stateStatus.text = stateName
+                } else {
+                    stateChangeActionSheet(stateName)
+                }
+            } else {
+                if ((stateName == "Stopped") || (stateName == "Playing")) {
+                    stateStatus.text = stateName
+                } else {
+                    stateChangeActionSheet(stateName)
+                }
+
+            }
         }
+    }
+    
+    func stateChangeActionSheet (_ stateName: String) {
+        let title : String? = "Your request is not supported in the DVR's current state"
+        let message : String? = "How would you like to proceed?"
+        var actions: [UIAlertAction] = []
+        func actionSheetHandler(alert: UIAlertAction!){
+            stateStatus.text = stateName
+            forcedStateChangeAlert(stateName)
+        }
+        
+        
+        let cancelAction =
+        UIAlertAction(title: "Cancel Request",
+            style: .default,
+            handler: nil)
+        let returnAction =
+        UIAlertAction(title: "Force Request",
+            style: .default,
+                      handler: actionSheetHandler(alert:))
+        
+        actions += [ cancelAction, returnAction ]
+        let alertController =
+        UIAlertController(title: title,
+            message: message,
+            preferredStyle: .actionSheet)
+        for action in actions {
+            alertController.addAction(action)
+        }
+        present(alertController,
+            animated: true,
+            completion: nil)
+    }
+    
+    func forcedStateChangeAlert (_ stateName: String) {
+        let title = "Confirmation"
+        let message = "Your request to switch the state to '\(stateName)' has been forced through"
+        let alertController =
+            UIAlertController(title: title,
+                message: message,
+                preferredStyle: .alert)
+        let dismissAction =
+            UIAlertAction(title: "Dismiss",
+                style: .cancel,
+                handler: nil)
+        alertController.addAction(dismissAction)
+        present(alertController,
+            animated: true,
+            completion: nil)
     }
     
     /*
