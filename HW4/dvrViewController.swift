@@ -67,7 +67,7 @@ class dvrViewController: UIViewController {
                     stateChangeActionSheet(stateName)
                 }
             } else {
-                if ((stateName == "Stopped") || (stateName == "Playing")) {
+                if ((stateName == "Stopped") || (stateName == "Playing") || (stateName == stateStatus.text)) {
                     stateStatus.text = stateName
                 } else {
                     stateChangeActionSheet(stateName)

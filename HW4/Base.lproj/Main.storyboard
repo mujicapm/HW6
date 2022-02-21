@@ -47,13 +47,13 @@
                                         <rect key="frame" x="34.666666666666657" y="155.66666666666669" width="273.33333333333337" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volume " textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLb-q4-3DK">
-                                                <rect key="frame" x="0.0" y="0.0" width="17.333333333333332" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="9.3333333333333339" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aXn-hQ-Fnn">
-                                                <rect key="frame" x="69.333333333333314" y="0.0" width="206" height="31"/>
+                                                <rect key="frame" x="61.333333333333343" y="0.0" width="214.00000000000003" height="31"/>
                                                 <connections>
                                                     <action selector="volumeChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="0OP-5o-I4K"/>
                                                 </connections>
