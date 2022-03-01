@@ -7,15 +7,37 @@
 
 import UIKit
 
-var favoriteChannels: [String: Int] = ["ABC": 7, "NBC": 4, "CBS": 9, "FOX": 5] 
+var favoriteChannelLabels: [String] = ["ABC", "NBC", "CBS", "FOX"]
+var favoriteChannelValues: [Int] = [7, 4, 9, 5]
 
 class ConfigurationViewController: UIViewController {
 
+    @IBOutlet weak var favoriteConfigSegmentControl: UISegmentedControl!
+    @IBOutlet weak var favoriteChannelValueDisplay: UILabel!
+    @IBOutlet weak var favoriteLabelConfig: UITextField!
+    @IBOutlet weak var favoriteChannelValueConfig: UIStepper!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        favoriteChannelValueConfig.value = 1
+        favoriteChannelValueDisplay.text = Int(favoriteChannelValueConfig.value).description
+        favoriteConfigSegmentControl.selectedSegmentIndex = 0
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func incrementfavoriteChannelValueConfig(_ sender: UIStepper) {
+        favoriteChannelValueDisplay.text = Int(favoriteChannelValueConfig.value).description
+    }
+    
+    @IBAction func updateFavoriteChannel(_ sender: UIButton) {
+        let currentSegmentIndex = favoriteConfigSegmentControl.selectedSegmentIndex
+        favoriteChannelLabels[currentSegmentIndex] = favoriteLabelConfig.text!
+        favoriteChannelValues[currentSegmentIndex] = Int(favoriteChannelValueConfig.value)
+        
+        
+    }
+    
     
 
     /*

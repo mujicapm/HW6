@@ -38,7 +38,15 @@ class ViewController: UIViewController {
         volumeValue.text = "\(Int(volumeSlider.value))"
         channelStepper.value = 1
         channelValue.text = "1"
+        for index in 0...3 {
+            favoriteChannelSegmentControl.setTitle(favoriteChannelLabels[index], forSegmentAt: index)
+        }
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        
+//        super.viewWillAppear(<#T##animated: Bool##Bool#>)
+//    }
 
     @IBAction func togglePower(_ sender: UISwitch) {
         powerStatus.text = (sender.isOn ? "on": "off")
@@ -105,8 +113,10 @@ class ViewController: UIViewController {
     }
     @IBAction func favoriteChannelSelection(_ sender: UISegmentedControl) {
         if let channel = sender.titleForSegment(at: sender.selectedSegmentIndex) {
-            channelStepper.value = Double(favoriteChannels[channel]!)
-            channelValue.text = String(favoriteChannels[channel]!)
+            if let channelIndex = favoriteChannelLabels.firstIndex(of: channel) {
+                channelStepper.value = Double(favoriteChannelValues[channelIndex])
+                channelValue.text = String(favoriteChannelValues[channelIndex])
+            }
             
         }
     }
