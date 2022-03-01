@@ -30,13 +30,51 @@ class ConfigurationViewController: UIViewController {
         favoriteChannelValueDisplay.text = Int(favoriteChannelValueConfig.value).description
     }
     
+    @IBAction func cancelFavoriteConfig(_ sender: UIButton) {
+        favoriteLabelConfig.text = nil
+        favoriteChannelValueConfig.value = 1
+        favoriteChannelValueDisplay.text = Int(favoriteChannelValueConfig.value).description
+        favoriteConfigSegmentControl.selectedSegmentIndex = 0
+    }
+    
+    
     @IBAction func updateFavoriteChannel(_ sender: UIButton) {
-        let currentSegmentIndex = favoriteConfigSegmentControl.selectedSegmentIndex
-        favoriteChannelLabels[currentSegmentIndex] = favoriteLabelConfig.text!
-        favoriteChannelValues[currentSegmentIndex] = Int(favoriteChannelValueConfig.value)
+        if (labelValidateHandler() == true) {
+            let currentSegmentIndex = favoriteConfigSegmentControl.selectedSegmentIndex
+            favoriteChannelLabels[currentSegmentIndex] = favoriteLabelConfig.text!
+            favoriteChannelValues[currentSegmentIndex] = Int(favoriteChannelValueConfig.value)
+        } else {
+            
+            let title = "Label Error"
+            let message = "You label must contain 1-4 characters. Please edit and try to save again"
+            let alertController =
+                UIAlertController(title: title,
+                    message: message,
+                    preferredStyle: .alert)
+            let dismissAction =
+                UIAlertAction(title: "OK",
+                    style: .default,
+                    handler: nil)
+            alertController.addAction(dismissAction)
+            present(alertController,
+                animated: true,
+                completion: nil)
+        }
+        
         
         
     }
+    
+    func labelValidateHandler () -> Bool {
+        if let label = favoriteLabelConfig.text {
+            if ((label.count > 0) && (label.count < 5)) {
+               return true
+            }
+        }
+        return false
+    }
+        
+        
     
     
 

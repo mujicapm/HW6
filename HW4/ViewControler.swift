@@ -38,15 +38,15 @@ class ViewController: UIViewController {
         volumeValue.text = "\(Int(volumeSlider.value))"
         channelStepper.value = 1
         channelValue.text = "1"
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         for index in 0...3 {
             favoriteChannelSegmentControl.setTitle(favoriteChannelLabels[index], forSegmentAt: index)
         }
+        super.viewWillAppear(true)
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        
-//        super.viewWillAppear(<#T##animated: Bool##Bool#>)
-//    }
 
     @IBAction func togglePower(_ sender: UISwitch) {
         powerStatus.text = (sender.isOn ? "on": "off")
