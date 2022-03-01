@@ -105,22 +105,8 @@ class ViewController: UIViewController {
     }
     @IBAction func favoriteChannelSelection(_ sender: UISegmentedControl) {
         if let channel = sender.titleForSegment(at: sender.selectedSegmentIndex) {
-            switch channel {
-            case "ABC":
-                channelStepper.value = 7
-                channelValue.text = "7"
-            case "NBC":
-                channelStepper.value = 4
-                channelValue.text = "4"
-            case "CBS":
-                channelStepper.value = 9
-                channelValue.text = "9"
-            case "FOX":
-                channelStepper.value = 5
-                channelValue.text = "5"
-            default:
-                sender.selectedSegmentIndex = -1
-            }
+            channelStepper.value = Double(favoriteChannels[channel]!)
+            channelValue.text = String(favoriteChannels[channel]!)
             
         }
     }
